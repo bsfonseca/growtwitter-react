@@ -5,22 +5,15 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     margin: auto;
+    border: 1px solid #d6d3d3;
 
-    background-color: beige;
-    max-width: 800px;
+    max-width: 1000px;
 
     #left {
-        background-color: orange;
         min-width: 180px;
-    }
-
-    #content {
-        background-color: #927c5f;
-        flex: 1;
     }
 
     #right {
-        background-color: rebeccapurple;
-        min-width: 180px;
+        min-width: 100px;
     }
 `;
