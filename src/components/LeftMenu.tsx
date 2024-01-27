@@ -10,14 +10,29 @@ const LeftStyled = styled.div`
 
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 12px;
     font-family: "Roboto";
 
     .pag-inicial {
         display: flex;
         flex-direction: row;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         color: #272728;
+    }
+
+    p {
+        margin-left: 8px;
+        font-size: 16;
+        margin-top: 8px;
+    }
+    #tweetar {
+        border: 0px;
+        width: 100%;
+        padding: 8px;
+        border-radius: 16px;
+        margin-top: 8px;
+        background-color: rgb(29, 155, 240);
+        color: white;
     }
 `;
 
@@ -29,7 +44,6 @@ export function LeftMenu() {
                     <img src={logo} alt="Logo Growtwitter" />
                     <div className="pag-inicial">
                         <img src={paginicial} alt="Logo página inicial" />
-
                         <p>Página Inicial</p>
                     </div>
 
@@ -43,10 +57,10 @@ export function LeftMenu() {
                         <p>Perfil</p>
                     </div>
 
-                    <button>Tweetar</button>
+                    <button id="tweetar">Tweetar</button>
                 </div>
 
-                <div id="bottom-left">
+                <div id="button-left">
                     <div>Card daphne</div>
                     <button>Sair</button>
                 </div>

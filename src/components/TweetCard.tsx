@@ -4,27 +4,33 @@ import { Tweet } from "../models/tweet.model";
 const CardStyled = styled.div`
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #cbc8cb;
-    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: rgb(51, 51, 51);
+    padding: 8px 12px;
 
     .tweet-photo {
-        width: 80px;
+        margin-right: 12px;
     }
 
     .tweet-conteudo {
         flex: 1;
+        font-size: 14px;
     }
 
     .tweet-titulo {
         display: flex;
         flex-direction: row;
         align-items: center;
+        font-size: 12px;
 
         .tweet-user {
             font-weight: bold;
+            font-size: 14px;
+
+            margin-right: 6px;
         }
         span {
-            margin-right: 8px;
+            margin-right: 4px;
         }
     }
 
@@ -39,8 +45,8 @@ const CardStyled = styled.div`
 
     .tweet-photo {
         img {
-            height: 60px;
-            width: 60px;
+            height: 40px;
+            width: 40px;
             border-radius: 50%;
         }
     }

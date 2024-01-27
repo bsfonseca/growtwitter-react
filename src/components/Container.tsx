@@ -5,8 +5,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     margin: auto;
-    border: 1px solid #d6d3d3;
-
     max-width: 1000px;
 
     #left {
