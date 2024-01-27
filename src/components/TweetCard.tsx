@@ -54,15 +54,15 @@ export function TweetCard(props: TweetCardProps) {
     return (
         <CardStyled>
             <div className="tweet-photo">
-                <img src={props.tweet.user.urlPhoto} alt="foto perfil" />
+                <img src={props.tweet.usuario.urlPhoto} alt="foto perfil" />
             </div>
             <div className="tweet-conteudo">
                 <div className="tweet-titulo">
-                    <h1 className="tweet-user">{props.tweet.user.name}</h1>
-                    <span>@{props.tweet.user.username}</span>
+                    <h1 className="tweet-user">{props.tweet.usuario.nome}</h1>
+                    <span>@{props.tweet.usuario.username}</span>
                     <span>* 3h</span>
                 </div>
-                <div className="tweet-text">{props.tweet.content}</div>
+                <div className="tweet-text">{props.tweet.conteudo}</div>
                 <div className="tweet-botao">
                     <div>bot1</div>
                     <div>bot2</div>
