@@ -3,6 +3,7 @@ import logo from "../assets/logo_growtweet.svg";
 import paginicial from "../assets/icone_pagina inicial_selecionado.svg";
 import explorer from "../assets/icone_explorar.svg";
 import perfil from "../assets/icone_perfil.svg";
+import { useNavigate } from "react-router-dom";
 
 const LeftStyled = styled.div`
     display: flex;
@@ -37,17 +38,19 @@ const LeftStyled = styled.div`
 `;
 
 export function LeftMenu() {
+    const navigate = useNavigate();
+
     return (
         <>
             <LeftStyled id="left">
                 <div id="top-left">
                     <img src={logo} alt="Logo Growtwitter" />
-                    <div className="pag-inicial">
+                    <div className="pag-inicial" onClick={() => navigate("/home")}>
                         <img src={paginicial} alt="Logo página inicial" />
                         <p>Página Inicial</p>
                     </div>
 
-                    <div className="pag-inicial">
+                    <div className="pag-inicial" onClick={() => navigate("/explorar")}>
                         <img src={explorer} alt="Logo explorer" />
                         <p>Explorer</p>
                     </div>

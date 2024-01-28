@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/api.service";
 import styled from "styled-components";
+import { useState } from "react";
 
 const LoginStyled = styled.div`
     height: 100vh;
@@ -68,6 +69,11 @@ const LoginStyled = styled.div`
             margin-top: 4px;
             background-color: #61b8ef;
             color: white;
+
+            &:disabled {
+                background-color: #ccc;
+                color: #444;
+            }
         }
 
         label {
@@ -86,6 +92,7 @@ const LoginStyled = styled.div`
 
 export const Login = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const submitLogin = async (event: any) => {
         event.preventDefault();
@@ -94,11 +101,15 @@ export const Login = () => {
 
         const body = {
             username: event.target.username.value,
-            password: event.target.password.value,
+            senha: event.target.password.value,
         };
-        // 2 - Chama a API p fazer login
 
+        setLoading(true);
+
+        // 2 - Chama a API p fazer login
         const result = await login(body);
+
+        setLoading(false);
 
         // 3 - Direciona a página p home
 
@@ -135,7 +146,7 @@ export const Login = () => {
                             <input type="text" name="password" required />
                         </div>
                         <div>
-                            <button>Entrar</button>
+                            <button disabled={loading}>Entrar</button>
                         </div>
                     </form>
                 </div>

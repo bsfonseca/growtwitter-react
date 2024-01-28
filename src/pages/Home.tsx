@@ -10,6 +10,8 @@ import { User } from "../models/user.model";
 
 export const Home = () => {
     const [user, setUser] = useState<User>();
+    const [loading, setLoading] = useState<boolean>(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,7 +34,11 @@ export const Home = () => {
             return;
         }
 
+        setLoading(true);
+
         axios.get("http://localhost:3333/tweets").then((result) => {
+            setLoading(false);
+
             setTweets(result.data.data);
         });
     }, [user]);
@@ -41,9 +47,8 @@ export const Home = () => {
         <>
             <Container>
                 <LeftMenu />
-                {/* <Content tweets={tweets} /> */}
 
-                <Content tweets={listaTweets} />
+                {loading ? <p>Aguarde! Carregando...</p> : <Content tweets={listaTweets} />}
 
                 <RightMenu />
             </Container>
