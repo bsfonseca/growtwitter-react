@@ -40,6 +40,12 @@ const LeftStyled = styled.div`
 export function LeftMenu() {
     const navigate = useNavigate();
 
+    const clicarSair = () => {
+        localStorage.removeItem("user");
+
+        navigate("/login");
+    };
+
     return (
         <>
             <LeftStyled id="left">
@@ -55,7 +61,7 @@ export function LeftMenu() {
                         <p>Explorer</p>
                     </div>
 
-                    <div className="pag-inicial">
+                    <div onClick={() => navigate("/profile")} className="pag-inicial">
                         <img src={perfil} alt="Logo perfil" />
                         <p>Perfil</p>
                     </div>
@@ -65,7 +71,7 @@ export function LeftMenu() {
 
                 <div id="button-left">
                     <div>Card daphne</div>
-                    <button>Sair</button>
+                    <button onClick={clicarSair}>Sair</button>
                 </div>
             </LeftStyled>
         </>
