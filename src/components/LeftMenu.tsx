@@ -5,6 +5,7 @@ import explorer from "../assets/icone_explorar.svg";
 import perfil from "../assets/icone_perfil.svg";
 import { useNavigate } from "react-router-dom";
 import { User } from "../models/user.model";
+import { Modal } from "./Modal";
 
 const LeftStyled = styled.div`
     display: flex;
@@ -101,6 +102,7 @@ export function LeftMenu(props: LeftProps) {
                     </div>
 
                     <button id="tweetar">Tweetar</button>
+                    <Modal />
                 </div>
 
                 <div id="button-left">

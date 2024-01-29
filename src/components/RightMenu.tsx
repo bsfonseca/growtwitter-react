@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { User } from "../models/user.model";
 
 const RightStyled = styled.div`
     background-color: #ffffff;
