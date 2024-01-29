@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Tweet } from "../models/tweet.model";
+import responder from "../assets/icone_responder.svg";
+import curtir from "../assets/icone_curtir.svg";
 
 const CardStyled = styled.div`
     display: flex;
@@ -50,6 +52,12 @@ const CardStyled = styled.div`
             border-radius: 50%;
         }
     }
+    .icone-curtir {
+        height: 10px;
+        width: 10px;
+        margin-left: 4px;
+        margin-right: 16px;
+    }
 `;
 
 export interface TweetCardProps {
@@ -70,8 +78,12 @@ export function TweetCard(props: TweetCardProps) {
                 </div>
                 <div className="tweet-text">{props.tweet.conteudo}</div>
                 <div className="tweet-botao">
-                    <div>bot1</div>
-                    <div>bot2</div>
+                    <div>
+                        <img className="icone-curtir" src={responder} alt="icone responder" />
+                    </div>
+                    <div>
+                        <img src={curtir} alt="icone curtir" />
+                    </div>
                 </div>
             </div>
         </CardStyled>
