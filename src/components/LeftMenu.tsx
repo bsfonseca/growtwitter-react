@@ -4,6 +4,7 @@ import paginicial from "../assets/icone_pagina inicial_selecionado.svg";
 import explorer from "../assets/icone_explorar.svg";
 import perfil from "../assets/icone_perfil.svg";
 import { useNavigate } from "react-router-dom";
+import { User } from "../models/user.model";
 
 const LeftStyled = styled.div`
     display: flex;
@@ -35,9 +36,36 @@ const LeftStyled = styled.div`
         background-color: rgb(29, 155, 240);
         color: white;
     }
+
+    .card-bottom {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 12px;
+
+        h1 {
+            font-size: 16px;
+            margin-left: 8px;
+        }
+
+        p {
+            font-size: 12px;
+            margin: 0;
+            margin-left: 8px;
+        }
+
+        img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+    }
 `;
 
-export function LeftMenu() {
+interface LeftProps {
+    user: User;
+}
+
+export function LeftMenu(props: LeftProps) {
     const navigate = useNavigate();
 
     const clicarSair = () => {
@@ -70,7 +98,14 @@ export function LeftMenu() {
                 </div>
 
                 <div id="button-left">
-                    <div>Card daphne</div>
+                    <div className="card-bottom">
+                        <img src={props.user.urlPhoto} alt="" />
+                        <div>
+                            <h1>{props.user.nome}</h1>
+                            <p>@{props.user.username}</p>
+                        </div>
+                    </div>
+
                     <button onClick={clicarSair}>Sair</button>
                 </div>
             </LeftStyled>
