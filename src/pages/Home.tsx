@@ -43,10 +43,14 @@ export const Home = () => {
         });
     }, [user]);
 
+    if (!user) {
+        return;
+    }
+
     return (
         <>
             <Container>
-                <LeftMenu />
+                <LeftMenu user={user} />
 
                 {loading ? <p>Aguarde! Carregando...</p> : <Content tweets={listaTweets} />}
 

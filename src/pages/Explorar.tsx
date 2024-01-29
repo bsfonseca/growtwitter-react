@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { LeftMenu } from "../components/LeftMenu";
 import { RightMenu } from "../components/RightMenu";
 import { Container } from "../components/Container";
+import { useEffect, useState } from "react";
+import { User } from "../models/user.model";
+import { useNavigate } from "react-router-dom";
 
 const ExplorerStyled = styled.div`
     height: 100%;
@@ -36,10 +39,28 @@ const ExplorerStyled = styled.div`
 `;
 
 export function Explorar() {
+    const [user, setUser] = useState<User>();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const userStorage = localStorage.getItem("user");
+
+        if (!userStorage) {
+            alert("Sessão experida, faça login novamente");
+            navigate("/login");
+            return;
+        }
+
+        setUser(JSON.parse(userStorage));
+    }, []);
+
+    if (!user) {
+        return;
+    }
     return (
         <>
             <Container>
-                <LeftMenu />
+                <LeftMenu user={user} />
                 <ExplorerStyled>
                     <h1>Explorar</h1>
 
