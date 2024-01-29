@@ -59,6 +59,12 @@ const LeftStyled = styled.div`
             border-radius: 50%;
         }
     }
+
+    .button {
+        outline: none;
+        border: 0;
+        background-color: white;
+    }
 `;
 
 interface LeftProps {
@@ -106,7 +112,9 @@ export function LeftMenu(props: LeftProps) {
                         </div>
                     </div>
 
-                    <button onClick={clicarSair}>Sair</button>
+                    <button className="button" onClick={clicarSair}>
+                        Sair
+                    </button>
                 </div>
             </LeftStyled>
         </>

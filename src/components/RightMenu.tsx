@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { User } from "../models/user.model";
 
 const RightStyled = styled.div`
     background-color: #ffffff;
@@ -33,7 +34,6 @@ const RightStyled = styled.div`
     #mostrar-mais {
         font-weight: bold;
         font-size: 10px;
-
         color: #539cbe;
         transition: color 0ms;
     }
@@ -44,7 +44,9 @@ const RightStyled = styled.div`
 
 /**
  * @todo refatorar para ficar componentizado
+ *
  */
+
 export function RightMenu() {
     return (
         <div>
