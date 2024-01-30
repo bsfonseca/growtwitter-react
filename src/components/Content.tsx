@@ -16,6 +16,20 @@ const ContentStyled = styled.div`
         padding: 8px;
         border-bottom: 1px solid #ddd;
     }
+
+    &::-webkit-scrollbar {
+        width: 12px; /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #e8e8e8; /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #848484; /* color of the scroll thumb */
+        border-radius: 20px; /* roundness of the scroll thumb */
+        border: 3px solid #e8e8e8; /* creates padding around scroll thumb */
+    }
 `;
 
 interface ContentProps {

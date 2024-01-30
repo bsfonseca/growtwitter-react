@@ -6,27 +6,29 @@ import perfil from "../assets/icone_perfil.svg";
 import { useNavigate } from "react-router-dom";
 import { User } from "../models/user.model";
 import { Modal } from "./Modal";
+import { useState } from "react";
 
 const LeftStyled = styled.div`
     display: flex;
     flex-direction: column;
 
     align-items: center;
-    justify-content: space-between;
+
     padding: 12px;
     font-family: "Roboto";
 
     .pag-inicial {
         display: flex;
+        align-items: center;
         flex-direction: row;
         margin-bottom: 4px;
         color: #272728;
     }
 
     p {
-        margin-left: 8px;
-        font-size: 16;
-        margin-top: 8px;
+        margin-left: 6px;
+        font-size: 16px;
+        padding: 4px 0;
     }
     #tweetar {
         border: 0px;
@@ -66,6 +68,10 @@ const LeftStyled = styled.div`
         border: 0;
         background-color: white;
     }
+
+    #button-left {
+        margin-top: auto;
+    }
 `;
 
 interface LeftProps {
@@ -74,11 +80,16 @@ interface LeftProps {
 
 export function LeftMenu(props: LeftProps) {
     const navigate = useNavigate();
+    const [modalAberto, setModalAberto] = useState(false);
 
     const clicarSair = () => {
         localStorage.removeItem("user");
 
         navigate("/login");
+    };
+
+    const fecharModal = () => {
+        setModalAberto(false);
     };
 
     return (
@@ -92,8 +103,8 @@ export function LeftMenu(props: LeftProps) {
                     </div>
 
                     <div className="pag-inicial" onClick={() => navigate("/explorar")}>
-                        <img src={explorer} alt="Logo explorer" />
-                        <p>Explorer</p>
+                        <img src={explorer} alt="Logo explorar" />
+                        <p>Explorar</p>
                     </div>
 
                     <div onClick={() => navigate("/profile")} className="pag-inicial">
@@ -101,9 +112,12 @@ export function LeftMenu(props: LeftProps) {
                         <p>Perfil</p>
                     </div>
 
-                    <button id="tweetar">Tweetar</button>
-                    <Modal />
+                    {modalAberto ? <Modal fecharModal={fecharModal} user={props.user} /> : <></>}
                 </div>
+
+                <button id="tweetar" onClick={() => setModalAberto(true)}>
+                    Tweetar
+                </button>
 
                 <div id="button-left">
                     <div className="card-bottom">
