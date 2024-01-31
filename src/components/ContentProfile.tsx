@@ -3,7 +3,7 @@ import { TweetCard } from "./TweetCard";
 import { Tweet } from "../models/tweet.model";
 import { User } from "../models/user.model";
 import icone from "../assets/icone_seta.svg";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ContentStyled = styled.div`
     flex: 1;
