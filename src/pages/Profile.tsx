@@ -37,7 +37,7 @@ export const Profile = () => {
         setLoading(true);
 
         axios
-            .get(`http://localhost:3333/usuario/${user.id}/tweet`, {
+            .get(import.meta.env.VITE_API_BASEURL + `/usuario/${user.id}/tweet`, {
                 headers: {
                     Authorization: user.token,
                 },

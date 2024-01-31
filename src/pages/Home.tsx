@@ -36,7 +36,7 @@ export const Home = () => {
 
         setLoading(true);
 
-        axios.get("http://localhost:3333/tweets").then((result) => {
+        axios.get(import.meta.env.VITE_API_BASEURL + "/tweets").then((result) => {
             setLoading(false);
 
             setTweets(result.data.data);
