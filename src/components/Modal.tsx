@@ -85,6 +85,7 @@ export function Modal(props: ModalProps) {
                     <div></div>
 
                     <textarea
+                        maxLength={255}
                         className="text"
                         placeholder=" Digite seu texto aqui!"
                         value={tweetConteudo}
